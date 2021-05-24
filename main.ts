@@ -42,41 +42,7 @@ function Level2 () {
             .......eeee.4ee..ece.cccec......
             ....eee....e......e...eee.ccee..
             `, SpriteKind.Food)
-    } else {
-        mySprite10 = sprites.create(img`
-            ................................
-            ............f...................
-            ............8f..8..f.......ff...
-            ......f......8..f..f....fff.....
-            .....8......f8..f.f....ff.......
-            fff..8f.....f8..f.f...ff..ff....
-            ...f8f8f....f8f..8....88...f....
-            .....ff8f....ff..88..f8....8f...
-            .......f88...fff.f8f.8f....ff...
-            .......fffff..ff..ff.8f...88fff.
-            .........ff8f.fff.ff88f..f8ff...
-            ...........fffffff.f8f..ffff....
-            ....88888f..ffffffffff.f8f......
-            ...f....f8ff88fffff8fffff.......
-            ...f......8fff88fffff88f........
-            ..............f88fffffff........
-            ...............88ffffff.........
-            ...............f88ffff..........
-            ................88ffff..........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ...............f8ffff...........
-            ...............88ffff...........
-            ..............888fffff..........
-            .............f8fffffff..........
-            .........f88f88f.fffffff........
-            ......8ff8f.fff..f8f.ff.ff......
-            ....f8f....f......f...fff.ffff..
-            `, SpriteKind.Leftovers)
+        mySprite6.setPosition(220, 25)
     }
     if (tiny_flower != 5) {
         mySprite7 = sprites.create(img`
@@ -145,7 +111,6 @@ function Level2 () {
     mySprite3.destroy()
     mySprite4.destroy()
     mySprite5.destroy()
-    Variableneededpleaseapply = 5
 }
 controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     if (mySprite.overlapsWith(mySprite2)) {
@@ -163,40 +128,6 @@ controller.A.onEvent(ControllerButtonEvent.Pressed, function () {
     } else if (mySprite.overlapsWith(mySprite6)) {
         mySprite6.destroy()
         Tree = 5
-        mySprite10 = sprites.create(img`
-            ................................
-            ............f...................
-            ............8f..8..f.......ff...
-            ......f......8..f..f....fff.....
-            .....8......f8..f.f....ff.......
-            fff..8f.....f8..f.f...ff..ff....
-            ...f8f8f....f8f..8....88...f....
-            .....ff8f....ff..88..f8....8f...
-            .......f88...fff.f8f.8f....ff...
-            .......fffff..ff..ff.8f...88fff.
-            .........ff8f.fff.ff88f..f8ff...
-            ...........fffffff.f8f..ffff....
-            ....88888f..ffffffffff.f8f......
-            ...f....f8ff88fffff8fffff.......
-            ...f......8fff88fffff88f........
-            ..............f88fffffff........
-            ...............88ffffff.........
-            ...............f88ffff..........
-            ................88ffff..........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ................88fff...........
-            ...............f8ffff...........
-            ...............88ffff...........
-            ..............888fffff..........
-            .............f8fffffff..........
-            .........f88f88f.fffffff........
-            ......8ff8f.fff..f8f.ff.ff......
-            ....f8f....f......f...fff.ffff..
-            `, SpriteKind.Leftovers)
     } else if (mySprite.overlapsWith(mySprite7)) {
         mySprite7.destroy()
         tiny_flower = 5
@@ -307,37 +238,33 @@ function Level_1 () {
         mySprite5.setPosition(207, 230)
     }
     tiles.setTilemap(tilemap`level2`)
-    if (Variableneededpleaseapply == 5) {
-        mySprite6.destroy()
-        mySprite7.destroy()
-        mySprite8.destroy()
-        mySprite9.destroy()
-        mySprite10.destroy()
-    }
+    mySprite6.destroy()
+    mySprite7.destroy()
+    mySprite8.destroy()
+    mySprite9.destroy()
+    mySprite10.destroy()
 }
 sprites.onOverlap(SpriteKind.Player, SpriteKind.Enemy, function (sprite, otherSprite) {
     info.changeLifeBy(-1)
+    otherSprite.destroy()
 })
 let mushrooms = 0
 let bigFlowers = 0
 let flowers = 0
 let bush = 0
-let Variableneededpleaseapply = 0
 let mySprite5: Sprite = null
 let mySprite4: Sprite = null
 let mySprite3: Sprite = null
 let mySprite2: Sprite = null
-let mySprite9: Sprite = null
-let mySprite8: Sprite = null
 let double_flower = 0
-let mySprite7: Sprite = null
 let tiny_flower = 0
-let mySprite10: Sprite = null
-let mySprite6: Sprite = null
 let Tree = 0
+let mySprite6: Sprite = null
+let mySprite7: Sprite = null
+let mySprite8: Sprite = null
+let mySprite9: Sprite = null
+let mySprite10: Sprite = null
 let mySprite: Sprite = null
-Level_1()
-info.setLife(3)
 mySprite = sprites.create(img`
     . . . . . . . 1 1 1 . . . . . . 
     . . . . . . 1 1 a 1 . . . . . . 
@@ -360,3 +287,100 @@ mySprite = sprites.create(img`
 mySprite.setPosition(225, 45)
 scene.cameraFollowSprite(mySprite)
 controller.moveSprite(mySprite, 100, 100)
+mySprite10 = sprites.create(img`
+    . . . . . . . 1 1 1 . . . . . . 
+    . . . . . . 1 1 a 1 . . . . . . 
+    . . . . . 1 1 a a 1 1 . . . . . 
+    . . . 1 1 1 a a a a 1 1 1 . . . 
+    . . 1 1 a b a a a a b a 1 1 . . 
+    . 1 1 a a b b a a b b a a 1 . . 
+    . 1 e a a a b b b b a a a 1 1 . 
+    . 1 e e a a a a a a a a e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 1 e e d d d d d d e e 1 1 . 
+    . 1 1 d d f d d d d f d d 1 1 . 
+    . 1 d b c b a b b a b f b d 1 . 
+    . 1 d d f a a a a a a f d d 1 . 
+    . 1 1 1 c b a a a a b c 1 1 1 . 
+    . . . 1 1 f f f f f f 1 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 . . . . 
+    `, SpriteKind.Player)
+mySprite9 = sprites.create(img`
+    . . . . . . . 1 1 1 . . . . . . 
+    . . . . . . 1 1 a 1 . . . . . . 
+    . . . . . 1 1 a a 1 1 . . . . . 
+    . . . 1 1 1 a a a a 1 1 1 . . . 
+    . . 1 1 a b a a a a b a 1 1 . . 
+    . 1 1 a a b b a a b b a a 1 . . 
+    . 1 e a a a b b b b a a a 1 1 . 
+    . 1 e e a a a a a a a a e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 1 e e d d d d d d e e 1 1 . 
+    . 1 1 d d f d d d d f d d 1 1 . 
+    . 1 d b c b a b b a b f b d 1 . 
+    . 1 d d f a a a a a a f d d 1 . 
+    . 1 1 1 c b a a a a b c 1 1 1 . 
+    . . . 1 1 f f f f f f 1 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 . . . . 
+    `, SpriteKind.Player)
+mySprite8 = sprites.create(img`
+    . . . . . . . 1 1 1 . . . . . . 
+    . . . . . . 1 1 a 1 . . . . . . 
+    . . . . . 1 1 a a 1 1 . . . . . 
+    . . . 1 1 1 a a a a 1 1 1 . . . 
+    . . 1 1 a b a a a a b a 1 1 . . 
+    . 1 1 a a b b a a b b a a 1 . . 
+    . 1 e a a a b b b b a a a 1 1 . 
+    . 1 e e a a a a a a a a e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 1 e e d d d d d d e e 1 1 . 
+    . 1 1 d d f d d d d f d d 1 1 . 
+    . 1 d b c b a b b a b f b d 1 . 
+    . 1 d d f a a a a a a f d d 1 . 
+    . 1 1 1 c b a a a a b c 1 1 1 . 
+    . . . 1 1 f f f f f f 1 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 . . . . 
+    `, SpriteKind.Player)
+mySprite7 = sprites.create(img`
+    . . . . . . . 1 1 1 . . . . . . 
+    . . . . . . 1 1 a 1 . . . . . . 
+    . . . . . 1 1 a a 1 1 . . . . . 
+    . . . 1 1 1 a a a a 1 1 1 . . . 
+    . . 1 1 a b a a a a b a 1 1 . . 
+    . 1 1 a a b b a a b b a a 1 . . 
+    . 1 e a a a b b b b a a a 1 1 . 
+    . 1 e e a a a a a a a a e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 1 e e d d d d d d e e 1 1 . 
+    . 1 1 d d f d d d d f d d 1 1 . 
+    . 1 d b c b a b b a b f b d 1 . 
+    . 1 d d f a a a a a a f d d 1 . 
+    . 1 1 1 c b a a a a b c 1 1 1 . 
+    . . . 1 1 f f f f f f 1 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 . . . . 
+    `, SpriteKind.Player)
+mySprite6 = sprites.create(img`
+    . . . . . . . 1 1 1 . . . . . . 
+    . . . . . . 1 1 a 1 . . . . . . 
+    . . . . . 1 1 a a 1 1 . . . . . 
+    . . . 1 1 1 a a a a 1 1 1 . . . 
+    . . 1 1 a b a a a a b a 1 1 . . 
+    . 1 1 a a b b a a b b a a 1 . . 
+    . 1 e a a a b b b b a a a 1 1 . 
+    . 1 e e a a a a a a a a e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 e e e d f d d f d e e e 1 . 
+    . 1 1 e e d d d d d d e e 1 1 . 
+    . 1 1 d d f d d d d f d d 1 1 . 
+    . 1 d b c b a b b a b f b d 1 . 
+    . 1 d d f a a a a a a f d d 1 . 
+    . 1 1 1 c b a a a a b c 1 1 1 . 
+    . . . 1 1 f f f f f f 1 1 . . . 
+    . . . . 1 1 1 1 1 1 1 1 . . . . 
+    `, SpriteKind.Player)
+info.setLife(3)
+Level_1()
